@@ -14,6 +14,7 @@ const collName = 'images';
 
 
 app.use(cors({origin:["https://ccareclient.onrender.com/","https://ccareserver.onrender.com"],methods:["GET","POST"],credentials: true}))
+app.use(cors(corsOptions));
 app.use(express.json())
 app.use(cookieParser())
 
