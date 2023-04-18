@@ -31,6 +31,12 @@ mongoose.connect(
     }}
 );
 
+app.get("/",(req,res)=>{
+    return res.json({
+        Mssg:"hwedsal"
+    })
+})
+
 app.post('/api/login', async (req,res)=>{
     const user = await User.findOne({
         uname: req.body.uname,
