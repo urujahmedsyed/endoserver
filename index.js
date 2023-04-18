@@ -17,7 +17,6 @@ app.use(cors({origin:["http://localhost:3000","http://localhost:5000"],methods:[
 app.use(express.json())
 app.use(cookieParser());
 
-
 mongoose.connect(
     url,
     { 
@@ -30,6 +29,12 @@ mongoose.connect(
     console.log("mongodb is connected");
     }}
 );
+
+app.get("/",(req,res)=>{
+    return res.json({
+        Mssg:"hwedsal"
+    })
+})
 
 app.post('/api/login', async (req,res)=>{
     const user = await User.findOne({
