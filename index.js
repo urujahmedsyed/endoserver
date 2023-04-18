@@ -13,7 +13,7 @@ const cookieParser = require('cookie-parser');
 const collName = 'images';
 
 
-app.use(cors({origin:["http://localhost:3000","http://localhost:5000"],methods:["GET","POST"]}))
+app.use(cors({origin:["https://ccareclient.onrender.com/","https://ccareserver.onrender.com"],methods:["GET","POST"]}))
 app.use(express.json())
 app.use(cookieParser());
 
