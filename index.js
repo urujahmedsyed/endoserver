@@ -13,9 +13,16 @@ const cookieParser = require('cookie-parser');
 const collName = 'images';
 
 
-app.use(cors({origin:["https://ccareclient.onrender.com/","https://ccareserver.onrender.com"],methods:["GET","POST"]}))
-app.use(express.json())
+app.use(cors({origin:["https://ccareclient.onrender.com/","https://ccareserver.onrender.com"],methods:["GET","POST"]}));
+app.use(express.json());
 app.use(cookieParser());
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://ccareclient.onrender.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+  });
 
 mongoose.connect(
     url,
